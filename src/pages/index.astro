@@ -78,7 +78,7 @@ const artists = await getArtists();
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 0.75rem var(--content-padding);
+    padding: 0.75rem var(--content-padding) calc(0.75rem + env(safe-area-inset-bottom, 0px));
     background: linear-gradient(transparent, var(--color-cream) 30%);
     z-index: 50;
     display: flex;
