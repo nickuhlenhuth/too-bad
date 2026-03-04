@@ -24,8 +24,8 @@
   --color-cream: #F5F0EB;
   --color-cream-dark: #E8E0D8;
   --color-ink: #1A1A1A;
-  --color-red: #C23B22;
-  --color-red-dark: #A12F1E;
+  --color-accent: #1A1A1A;
+  --color-accent-hover: #FFFFFF;
   --color-warm-gray: #4A4540;
   --color-light-gray: #8A8580;
   --color-paper: #FAF7F3;
@@ -209,12 +209,12 @@ section {
 }
 
 .btn--red {
-  border-color: var(--color-red);
-  color: var(--color-red);
+  border-color: var(--color-ink);
+  color: var(--color-ink);
 }
 
 .btn--red:hover {
-  background-color: var(--color-red);
+  background-color: var(--color-ink);
   color: var(--color-cream);
 }
 
@@ -257,12 +257,12 @@ section {
 
 /* --- Selection --- */
 ::selection {
-  background-color: var(--color-red);
+  background-color: var(--color-ink);
   color: var(--color-cream);
 }
 
 /* --- Focus --- */
 :focus-visible {
-  outline: 2px solid var(--color-red);
+  outline: 2px solid var(--color-ink);
   outline-offset: 2px;
 }

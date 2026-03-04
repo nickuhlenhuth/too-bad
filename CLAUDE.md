@@ -9,7 +9,7 @@
 ## Color Palette
 - Background: soft pastel gradient — warm orange, pink, yellow, and green blobs on a pale lime base (`#f0f1e3`). Applied via layered `radial-gradient`s with `background-attachment: fixed`.
 - Primary: ink black `#1A1A1A`
-- Accent: muted tattoo red `#C23B22`
+- Accent: ink black `#1A1A1A` and white `#FFFFFF` — no color accents
 - Body text: warm gray `#4A4540`
 - Light accent: `#E8E0D8`
 

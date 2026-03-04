@@ -13,12 +13,7 @@ const { artists } = Astro.props;
   <div class="container">
     <div class="artists__header animate-in">
       <h2 class="artists__title">Our Artists</h2>
-      <div class="artists__title-line" aria-hidden="true">
-        <svg width="120" height="12" viewBox="0 0 120 12" fill="none">
-          <path d="M0 6 Q15 2 30 6 T60 6 T90 6 T120 6" stroke="var(--color-ink)" stroke-width="0.75" opacity="0.3"/>
-          <circle cx="60" cy="6" r="2" fill="var(--color-red)"/>
-        </svg>
-      </div>
+      <div class="artists__title-line" aria-hidden="true">★</div>
     </div>
 
     <div class="artists__grid">
@@ -48,8 +43,9 @@ const { artists } = Astro.props;
   }
 
   .artists__title-line {
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    color: var(--color-ink);
+    font-size: 0.75rem;
   }
 
   .artists__grid {
