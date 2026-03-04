@@ -102,7 +102,7 @@ const hasPhoto = artist.photo;
     position: relative;
     padding: var(--space-md);
     border: 1px solid rgba(26, 26, 26, 0.1);
-    background-color: var(--color-paper);
+    background-color: rgba(250, 247, 243, 0.6);
   }
 
   /* Decorative corner ticks */
@@ -137,7 +137,7 @@ const hasPhoto = artist.photo;
     width: 100%;
     aspect-ratio: 1;
     overflow: hidden;
-    border: 1px solid rgba(26, 26, 26, 0.1);
+    border: 1.5px solid rgba(26, 26, 26, 0.15);
     margin-bottom: var(--space-sm);
   }
 
@@ -157,7 +157,7 @@ const hasPhoto = artist.photo;
   }
 
   .artist-card__name {
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
     font-family: var(--font-display);
     margin-bottom: 0.25rem;
     display: flex;
@@ -184,7 +184,7 @@ const hasPhoto = artist.photo;
   .artist-card__portfolio {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
+    gap: 2px;
     margin-bottom: var(--space-md);
   }
 
@@ -236,13 +236,14 @@ const hasPhoto = artist.photo;
     justify-content: center;
     width: 40px;
     height: 40px;
-    border: 1px solid rgba(26, 26, 26, 0.15);
+    border: 1.5px solid var(--color-red);
     transition: border-color 0.2s ease;
     flex-shrink: 0;
   }
 
   .artist-card__ig:hover {
-    border-color: var(--color-ink);
+    background-color: var(--color-red);
+    color: var(--color-cream);
   }
 
 </style>

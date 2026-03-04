@@ -10,48 +10,12 @@ const { info } = Astro.props;
 
 <section class="about" id="about">
   <div class="container">
-    <div class="about__layout">
-      <!-- Decorative side element -->
-      <div class="about__decor" aria-hidden="true">
-        <svg width="60" height="300" viewBox="0 0 60 300" fill="none">
-          <!-- Vertical line with western accents -->
-          <line x1="30" y1="0" x2="30" y2="300" stroke="var(--color-ink)" stroke-width="0.5" opacity="0.15"/>
-          <!-- Small stars along the line -->
-          <path d="M30 40 L32 46 L38 47 L33 51 L35 57 L30 53 L25 57 L27 51 L22 47 L28 46 Z" fill="var(--color-red)" opacity="0.6"/>
-          <path d="M30 140 L32 146 L38 147 L33 151 L35 157 L30 153 L25 157 L27 151 L22 147 L28 146 Z" fill="var(--color-red)" opacity="0.4"/>
-          <path d="M30 240 L32 246 L38 247 L33 251 L35 257 L30 253 L25 257 L27 251 L22 247 L28 246 Z" fill="var(--color-red)" opacity="0.6"/>
-          <!-- Small diamond shapes -->
-          <path d="M30 90 L35 95 L30 100 L25 95 Z" stroke="var(--color-ink)" stroke-width="0.5" fill="none" opacity="0.2"/>
-          <path d="M30 190 L35 195 L30 200 L25 195 Z" stroke="var(--color-ink)" stroke-width="0.5" fill="none" opacity="0.2"/>
-        </svg>
-      </div>
+    <div class="about__content animate-in">
+      <h2 class="about__heading">About the Shop</h2>
 
-      <div class="about__content animate-in">
-        <h2 class="about__heading">
-          <span class="about__heading-accent" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 50 50" fill="var(--color-red)">
-              <path d="M25 3 L30 18 L46 20 L34 31 L37 47 L25 39 L13 47 L16 31 L4 20 L20 18 Z"/>
-            </svg>
-          </span>
-          About the Shop
-        </h2>
+      <p class="about__text">{info.about}</p>
 
-        <p class="about__text">{info.about}</p>
-
-        <div class="about__details">
-          <p class="about__badge">Female-Owned & Female-Operated</p>
-
-          <!-- Decorative horseshoe -->
-          <div class="about__horseshoe" aria-hidden="true">
-            <svg width="30" height="35" viewBox="0 0 60 70" fill="none">
-              <path d="M12 65 L12 30 C12 14 22 5 30 5 C38 5 48 14 48 30 L48 65"
-                stroke="var(--color-ink)" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.2"/>
-              <circle cx="12" cy="65" r="2" fill="var(--color-ink)" opacity="0.2"/>
-              <circle cx="48" cy="65" r="2" fill="var(--color-ink)" opacity="0.2"/>
-            </svg>
-          </div>
-        </div>
-      </div>
+      <p class="about__badge">Female-Owned & Female-Operated</p>
     </div>
   </div>
 </section>
@@ -61,33 +25,14 @@ const { info } = Astro.props;
     position: relative;
   }
 
-  .about__layout {
-    display: flex;
-    gap: var(--space-lg);
-    align-items: flex-start;
-  }
-
-  .about__decor {
-    display: none;
-    flex-shrink: 0;
-  }
-
   .about__content {
     max-width: 650px;
   }
 
   .about__heading {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
     font-size: var(--text-xl);
     margin-bottom: var(--space-md);
     color: var(--color-ink);
-  }
-
-  .about__heading-accent {
-    flex-shrink: 0;
-    margin-top: -2px;
   }
 
   .about__text {
@@ -95,12 +40,6 @@ const { info } = Astro.props;
     line-height: 1.8;
     color: var(--color-warm-gray);
     margin-bottom: var(--space-md);
-  }
-
-  .about__details {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
   }
 
   .about__badge {
@@ -111,19 +50,5 @@ const { info } = Astro.props;
     border: 1px solid var(--color-red);
     padding: 0.4rem 1rem;
     display: inline-block;
-  }
-
-  .about__horseshoe {
-    opacity: 0.6;
-  }
-
-  @media (min-width: 768px) {
-    .about__decor {
-      display: block;
-    }
-
-    .about__content {
-      padding-top: var(--space-sm);
-    }
   }
 </style>

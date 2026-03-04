@@ -1,21 +1,23 @@
 # Too Bad Tattoo Studio - Development Guidelines
 
 ## Design Aesthetic
-- Fine-line western tattoo illustration. The site should feel like a tattoo flash sheet or sketchbook.
+- Fine-line tattoo illustration. The site should feel like a tattoo flash sheet or sketchbook.
 - NEVER use generic UI patterns: no gradient buttons, no card shadows, no glassmorphism, no rounded-corner everything.
-- Design elements should feel hand-drawn, organic, and slightly imperfect.
-- Western/Texas motifs: stars, boots, horseshoes, spurs, cacti — always subtle, never kitschy.
+- Design elements should feel organic and slightly imperfect.
+- No themed decorative SVGs (no scattered stars, horseshoes, cacti, etc.). Keep it clean.
 
 ## Color Palette
-- Background: warm cream `#F5F0EB`
+- Background: soft pastel gradient — warm orange, pink, yellow, and green blobs on a pale lime base (`#f0f1e3`). Applied via layered `radial-gradient`s with `background-attachment: fixed`.
 - Primary: ink black `#1A1A1A`
 - Accent: muted tattoo red `#C23B22`
 - Body text: warm gray `#4A4540`
 - Light accent: `#E8E0D8`
 
 ## Typography
-- Headers: Display/hand-lettered font with personality
-- Body: Clean, readable font with warmth
+- Headers: **Bebas Neue** — bold, condensed, all-caps display font (`--font-display`)
+- Body: **Aaargh** — clean, readable, all-caps small text (`--font-body`)
+- Fonts are self-hosted in `public/fonts/` (no Google Fonts)
+- Icon separator: ★ (star) — used between items, in dividers, etc.
 
 ## Tech Stack
 - Astro + TypeScript

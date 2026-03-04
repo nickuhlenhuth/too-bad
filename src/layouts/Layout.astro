@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Female-owned fine-line western tattoo studio in Austin, TX" } = Astro.props;
+const { title, description = "Female-owned fine-line tattoo studio in Austin, TX" } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,11 +21,6 @@ const { title, description = "Female-owned fine-line western tattoo studio in Au
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Rye&display=swap" rel="stylesheet" />
 
     <title>{title}</title>
 

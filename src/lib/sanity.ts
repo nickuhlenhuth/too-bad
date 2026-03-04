@@ -60,9 +60,9 @@ export async function getStudioInfo(): Promise<StudioInfo> {
 
   return {
     shopName: "Too Bad Tattoo Studio",
-    tagline: "Fine Line Western Tattoo",
+    tagline: "Fine Line Tattoo",
     about:
-      "Female-owned and female-operated tattoo studio in Austin, TX. We specialize in fine-line western tattoo art — from delicate florals to cowboy boots, hand-poked stars to vintage flash.",
+      "Female-owned and female-operated tattoo studio in Austin, TX. We specialize in fine-line tattoo art.",
     address: "Austin, TX",
     hours: [
       { day: "Tuesday – Saturday", hours: "11am – 7pm" },
@@ -103,7 +103,7 @@ function getPlaceholderArtists(): Artist[] {
       name: "Bree",
       slug: { current: "bree" },
       photo: null as unknown as SanityImageSource,
-      bio: "Owner & artist. Fine-line western, florals, and hand-poked work.",
+      bio: "Owner & artist. Fine-line and hand-poked work.",
       bookingUrl: "https://www.instagram.com/myb.tattoo/",
       instagramUrl: "https://www.instagram.com/myb.tattoo/",
       isGuest: false,
@@ -115,7 +115,7 @@ function getPlaceholderArtists(): Artist[] {
       name: "Artist Two",
       slug: { current: "artist-two" },
       photo: null as unknown as SanityImageSource,
-      bio: "Fine-line specialist with a love for botanical and western motifs.",
+      bio: "Fine-line specialist with a love for botanical work.",
       bookingUrl: "#",
       instagramUrl: "#",
       isGuest: false,
