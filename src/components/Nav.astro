@@ -51,6 +51,10 @@
     box-shadow: 0 1px 0 rgba(26, 26, 26, 0.08);
   }
 
+  .nav.menu-open {
+    backdrop-filter: none;
+  }
+
   .nav__inner {
     display: flex;
     align-items: center;
@@ -193,6 +197,7 @@
     const expanded = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!expanded));
     links?.classList.toggle('open');
+    nav?.classList.toggle('menu-open');
     document.body.style.overflow = expanded ? '' : 'hidden';
   });
 
@@ -201,6 +206,7 @@
     link.addEventListener('click', () => {
       toggle?.setAttribute('aria-expanded', 'false');
       links?.classList.remove('open');
+      nav?.classList.remove('menu-open');
       document.body.style.overflow = '';
     });
   });
