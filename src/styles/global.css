@@ -1,0 +1,275 @@
+/* ============================================
+   Too Bad Tattoo Studio — Global Styles
+   Fine-line western tattoo aesthetic
+   ============================================ */
+
+/* --- Custom Properties --- */
+:root {
+  --color-cream: #F5F0EB;
+  --color-cream-dark: #E8E0D8;
+  --color-ink: #1A1A1A;
+  --color-red: #C23B22;
+  --color-red-dark: #A12F1E;
+  --color-warm-gray: #4A4540;
+  --color-light-gray: #8A8580;
+  --color-paper: #FAF7F3;
+
+  --font-display: 'Rye', Georgia, serif;
+  --font-body: 'Instrument Sans', -apple-system, sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  --max-width: 1200px;
+  --content-padding: 1.25rem;
+
+  --text-sm: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
+  --text-base: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --text-lg: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  --text-xl: clamp(1.75rem, 1.4rem + 1vw, 2.5rem);
+  --text-2xl: clamp(2.5rem, 2rem + 2vw, 4rem);
+  --text-3xl: clamp(3rem, 2.5rem + 2.5vw, 5.5rem);
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-ink);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Paper texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+p {
+  color: var(--color-warm-gray);
+  max-width: 60ch;
+}
+
+/* --- Utility --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-inline: var(--content-padding);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* --- Section Spacing --- */
+section {
+  padding-block: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-block: var(--space-2xl);
+  }
+}
+
+/* --- Links & Buttons --- */
+.link-underline {
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-ink), var(--color-ink));
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+}
+
+.link-underline:hover {
+  background-size: 0% 1px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1.5px solid var(--color-ink);
+  background: transparent;
+  color: var(--color-ink);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative;
+}
+
+.btn:hover {
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.btn--red {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.btn--red:hover {
+  background-color: var(--color-red);
+  color: var(--color-cream);
+}
+
+/* --- Hand-drawn line divider --- */
+.divider {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border: none;
+  background: none;
+  position: relative;
+}
+
+.divider::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='800' height='4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2 Q50 0 100 2 T200 2 T300 2 T400 2 T500 2 T600 2 T700 2 T800 2' fill='none' stroke='%231A1A1A' stroke-width='1' opacity='0.3'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+
+/* --- Animations --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-cream-dark);
+  border-radius: 0;
+}
+
+/* --- Selection --- */
+::selection {
+  background-color: var(--color-red);
+  color: var(--color-cream);
+}
+
+/* --- Focus --- */
+:focus-visible {
+  outline: 2px solid var(--color-red);
+  outline-offset: 2px;
+}

@@ -1,0 +1,228 @@
+---
+import type { StudioInfo } from '../lib/sanity';
+
+interface Props {
+  info: StudioInfo;
+}
+
+const { info } = Astro.props;
+---
+
+<section class="hero" id="top">
+  <!-- Decorative corner elements -->
+  <div class="hero__corner hero__corner--tl" aria-hidden="true">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <path d="M2 78 L2 2 L78 2" stroke="var(--color-ink)" stroke-width="1" opacity="0.2"/>
+      <path d="M12 60 L12 12 L60 12" stroke="var(--color-ink)" stroke-width="0.5" opacity="0.1"/>
+    </svg>
+  </div>
+  <div class="hero__corner hero__corner--tr" aria-hidden="true">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <path d="M78 78 L78 2 L2 2" stroke="var(--color-ink)" stroke-width="1" opacity="0.2"/>
+    </svg>
+  </div>
+  <div class="hero__corner hero__corner--bl" aria-hidden="true">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <path d="M2 2 L2 78 L78 78" stroke="var(--color-ink)" stroke-width="1" opacity="0.2"/>
+    </svg>
+  </div>
+  <div class="hero__corner hero__corner--br" aria-hidden="true">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+      <path d="M78 2 L78 78 L2 78" stroke="var(--color-ink)" stroke-width="1" opacity="0.2"/>
+    </svg>
+  </div>
+
+  <div class="hero__content container">
+    <!-- Decorative stars scattered -->
+    <div class="hero__stars" aria-hidden="true">
+      <svg class="hero__star hero__star--1" width="18" height="18" viewBox="0 0 50 50">
+        <path d="M25 3 L30 18 L46 20 L34 31 L37 47 L25 39 L13 47 L16 31 L4 20 L20 18 Z" fill="var(--color-red)"/>
+      </svg>
+      <svg class="hero__star hero__star--2" width="12" height="12" viewBox="0 0 50 50">
+        <path d="M25 3 L30 18 L46 20 L34 31 L37 47 L25 39 L13 47 L16 31 L4 20 L20 18 Z" fill="var(--color-red)" opacity="0.6"/>
+      </svg>
+      <svg class="hero__star hero__star--3" width="10" height="10" viewBox="0 0 50 50">
+        <path d="M25 3 L30 18 L46 20 L34 31 L37 47 L25 39 L13 47 L16 31 L4 20 L20 18 Z" fill="var(--color-red)" opacity="0.4"/>
+      </svg>
+      <svg class="hero__star hero__star--4" width="15" height="15" viewBox="0 0 50 50">
+        <path d="M25 3 L30 18 L46 20 L34 31 L37 47 L25 39 L13 47 L16 31 L4 20 L20 18 Z" fill="var(--color-red)" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- Decorative linework background -->
+    <div class="hero__linework" aria-hidden="true">
+      <svg viewBox="0 0 400 300" fill="none" class="hero__horse">
+        <!-- Simplified fine-line horse illustration -->
+        <path d="M180 220 C180 220 170 180 175 160 C180 140 195 130 200 110 C205 90 200 70 210 55 C220 40 240 35 250 40 C260 45 255 55 250 60 C245 65 235 62 230 70 C225 78 230 90 225 100 C220 110 230 120 240 130 C250 140 270 145 280 160 C290 175 285 195 280 220"
+          stroke="var(--color-ink)" stroke-width="1" opacity="0.08" fill="none"/>
+        <!-- Legs -->
+        <path d="M195 220 L190 260 M210 220 L208 260 M260 220 L258 260 M275 220 L278 260"
+          stroke="var(--color-ink)" stroke-width="1" opacity="0.08"/>
+        <!-- Mane -->
+        <path d="M215 65 C210 75 205 85 200 95 M220 60 C215 70 210 80 205 90 M225 58 C220 68 215 78 210 88"
+          stroke="var(--color-ink)" stroke-width="0.75" opacity="0.06"/>
+        <!-- Tail -->
+        <path d="M280 220 C290 230 295 240 290 255 C285 270 275 275 270 265"
+          stroke="var(--color-ink)" stroke-width="0.75" opacity="0.06"/>
+      </svg>
+    </div>
+
+    <p class="hero__location">Austin, TX</p>
+
+    <h1 class="hero__title">
+      <span class="hero__title-line">Too Bad</span>
+      <span class="hero__title-sub">Tattoo Studio</span>
+    </h1>
+
+    <p class="hero__tagline">{info.tagline || 'Fine Line Western Tattoo'}</p>
+
+    <!-- Decorative hand-drawn divider -->
+    <div class="hero__divider" aria-hidden="true">
+      <svg width="200" height="20" viewBox="0 0 200 20" fill="none">
+        <path d="M10 10 Q30 5 50 10 T90 10 T130 10 T170 10 L190 10" stroke="var(--color-ink)" stroke-width="0.75" opacity="0.3"/>
+        <circle cx="100" cy="10" r="2" fill="var(--color-red)"/>
+      </svg>
+    </div>
+
+    <a href="#artists" class="btn hero__cta">Meet Our Artists</a>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero__scroll" aria-hidden="true">
+    <svg width="20" height="40" viewBox="0 0 20 40" fill="none">
+      <path d="M10 5 L10 30 M5 25 L10 32 L15 25" stroke="var(--color-ink)" stroke-width="1" opacity="0.3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-xl) 0;
+  }
+
+  .hero__corner {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .hero__corner--tl { top: 1rem; left: 1rem; }
+  .hero__corner--tr { top: 1rem; right: 1rem; }
+  .hero__corner--bl { bottom: 1rem; left: 1rem; }
+  .hero__corner--br { bottom: 1rem; right: 1rem; }
+
+  .hero__content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero__stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero__star {
+    position: absolute;
+  }
+
+  .hero__star--1 { top: -10%; left: 15%; }
+  .hero__star--2 { top: 5%; right: 20%; }
+  .hero__star--3 { bottom: 15%; left: 10%; }
+  .hero__star--4 { bottom: 5%; right: 15%; }
+
+  .hero__linework {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .hero__horse {
+    width: min(80%, 500px);
+    height: auto;
+    opacity: 1;
+  }
+
+  .hero__location {
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-warm-gray);
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__title-line {
+    font-size: var(--text-3xl);
+    line-height: 1;
+    color: var(--color-ink);
+    display: block;
+  }
+
+  .hero__title-sub {
+    font-size: var(--text-xl);
+    color: var(--color-warm-gray);
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 0.25em;
+  }
+
+  .hero__tagline {
+    font-size: var(--text-base);
+    color: var(--color-light-gray);
+    font-style: italic;
+    margin: 0 auto var(--space-md);
+  }
+
+  .hero__divider {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero__cta {
+    border-color: var(--color-ink);
+  }
+
+  .hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bobUpDown 2s ease-in-out infinite;
+  }
+
+  @keyframes bobUpDown {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  @media (min-width: 768px) {
+    .hero__corner--tl { top: 2rem; left: 2rem; }
+    .hero__corner--tr { top: 2rem; right: 2rem; }
+    .hero__corner--bl { bottom: 2rem; left: 2rem; }
+    .hero__corner--br { bottom: 2rem; right: 2rem; }
+
+    .hero__star--1 { top: -5%; left: 20%; }
+    .hero__star--2 { top: 10%; right: 25%; }
+    .hero__star--3 { bottom: 20%; left: 18%; }
+    .hero__star--4 { bottom: 10%; right: 22%; }
+  }
+</style>

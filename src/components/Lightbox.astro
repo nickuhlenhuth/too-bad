@@ -1,0 +1,108 @@
+---
+// Lightbox for portfolio image viewing
+---
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Portfolio image viewer" hidden>
+  <button class="lightbox__close" aria-label="Close image viewer">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+      <line x1="4" y1="4" x2="20" y2="20"/>
+      <line x1="20" y1="4" x2="4" y2="20"/>
+    </svg>
+  </button>
+
+  <div class="lightbox__content">
+    <img class="lightbox__img" src="" alt="" />
+  </div>
+</div>
+
+<style>
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(26, 26, 26, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .lightbox[data-open] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lightbox__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: var(--color-cream);
+    padding: 0.5rem;
+    z-index: 2;
+    transition: opacity 0.2s ease;
+  }
+
+  .lightbox__close:hover {
+    opacity: 0.7;
+  }
+
+  .lightbox__content {
+    max-width: 90vw;
+    max-height: 85vh;
+  }
+
+  .lightbox__img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+  }
+</style>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox?.querySelector('.lightbox__img') as HTMLImageElement;
+  const closeBtn = lightbox?.querySelector('.lightbox__close');
+
+  function openLightbox(src: string, alt: string) {
+    if (!lightbox || !lightboxImg) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.hidden = false;
+    // Force reflow then add open attribute
+    lightbox.offsetHeight;
+    lightbox.setAttribute('data-open', '');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.removeAttribute('data-open');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      lightbox.hidden = true;
+      if (lightboxImg) lightboxImg.src = '';
+    }, 300);
+  }
+
+  // Attach click handlers to portfolio items
+  document.querySelectorAll('[data-lightbox]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const src = (btn as HTMLElement).dataset.src || '';
+      const alt = (btn as HTMLElement).dataset.alt || '';
+      openLightbox(src, alt);
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeLightbox);
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>

@@ -1,0 +1,67 @@
+---
+import type { Artist } from '../lib/sanity';
+import ArtistCard from './ArtistCard.astro';
+
+interface Props {
+  artists: Artist[];
+}
+
+const { artists } = Astro.props;
+---
+
+<section class="artists" id="artists">
+  <div class="container">
+    <div class="artists__header animate-in">
+      <h2 class="artists__title">Our Artists</h2>
+      <div class="artists__title-line" aria-hidden="true">
+        <svg width="120" height="12" viewBox="0 0 120 12" fill="none">
+          <path d="M0 6 Q15 2 30 6 T60 6 T90 6 T120 6" stroke="var(--color-ink)" stroke-width="0.75" opacity="0.3"/>
+          <circle cx="60" cy="6" r="2" fill="var(--color-red)"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="artists__grid">
+      {artists.map((artist, i) => (
+        <div class="animate-in" style={`transition-delay: ${i * 0.1}s`}>
+          <ArtistCard artist={artist} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .artists {
+    position: relative;
+  }
+
+  .artists__header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .artists__title {
+    font-size: var(--text-2xl);
+    color: var(--color-ink);
+    margin-bottom: var(--space-xs);
+  }
+
+  .artists__title-line {
+    display: flex;
+    justify-content: center;
+  }
+
+  .artists__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  @media (min-width: 768px) {
+    .artists__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+    }
+  }
+</style>

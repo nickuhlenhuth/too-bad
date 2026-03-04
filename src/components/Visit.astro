@@ -1,0 +1,154 @@
+---
+import type { StudioInfo } from '../lib/sanity';
+
+interface Props {
+  info: StudioInfo;
+}
+
+const { info } = Astro.props;
+---
+
+<section class="visit" id="visit">
+  <div class="container">
+    <div class="visit__layout">
+      <div class="visit__content animate-in">
+        <h2 class="visit__title">Come Say Howdy</h2>
+
+        <div class="visit__details">
+          <div class="visit__block">
+            <h3 class="visit__label">Find Us</h3>
+            <p class="visit__value">{info.address}</p>
+          </div>
+
+          {info.hours && info.hours.length > 0 && (
+            <div class="visit__block">
+              <h3 class="visit__label">Hours</h3>
+              {info.hours.map((h) => (
+                <p class="visit__value">
+                  <span class="visit__day">{h.day}</span>
+                  <span class="visit__hours">{h.hours}</span>
+                </p>
+              ))}
+            </div>
+          )}
+
+          {info.email && (
+            <div class="visit__block">
+              <h3 class="visit__label">Get in Touch</h3>
+              <p class="visit__value">
+                <a href={`mailto:${info.email}`} class="link-underline">{info.email}</a>
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <!-- Decorative illustration -->
+      <div class="visit__illustration animate-in" aria-hidden="true">
+        <svg viewBox="0 0 200 260" fill="none" class="visit__cactus-scene">
+          <!-- Ground line -->
+          <path d="M10 230 Q50 228 100 230 T190 230" stroke="var(--color-ink)" stroke-width="0.75" opacity="0.15"/>
+
+          <!-- Cactus 1 (main) -->
+          <path d="M100 230 L100 80 C100 70 100 65 100 60" stroke="var(--color-ink)" stroke-width="1.5" opacity="0.12" stroke-linecap="round"/>
+          <path d="M100 140 L75 140 C65 140 60 130 60 120 L60 105" stroke="var(--color-ink)" stroke-width="1.5" opacity="0.12" stroke-linecap="round"/>
+          <path d="M100 110 L130 110 C138 110 142 118 142 125 L142 135" stroke="var(--color-ink)" stroke-width="1.5" opacity="0.12" stroke-linecap="round"/>
+          <!-- Flower on top -->
+          <path d="M95 60 C93 55 97 50 100 48 C103 50 107 55 105 60" stroke="var(--color-red)" stroke-width="1" opacity="0.2" fill="none"/>
+          <circle cx="100" cy="55" r="2" fill="var(--color-red)" opacity="0.2"/>
+
+          <!-- Small cactus -->
+          <path d="M155 230 L155 185" stroke="var(--color-ink)" stroke-width="1" opacity="0.1" stroke-linecap="round"/>
+          <path d="M155 200 L165 200 C168 200 170 196 170 192" stroke="var(--color-ink)" stroke-width="1" opacity="0.1" stroke-linecap="round"/>
+
+          <!-- Stars scattered -->
+          <path d="M40 80 L42 86 L48 87 L43 91 L45 97 L40 93 L35 97 L37 91 L32 87 L38 86 Z" fill="var(--color-red)" opacity="0.25"/>
+          <path d="M160 60 L161 63 L164 64 L162 66 L163 69 L160 67 L157 69 L158 66 L156 64 L159 63 Z" fill="var(--color-red)" opacity="0.15"/>
+          <path d="M45 180 L46 183 L49 184 L47 186 L48 189 L45 187 L42 189 L43 186 L41 184 L44 183 Z" fill="var(--color-red)" opacity="0.2"/>
+
+          <!-- Texas state outline (simplified) -->
+          <path d="M15 30 L35 28 L45 20 L50 25 L55 22 L55 35 L50 45 L35 55 L30 50 L20 55 L15 45 Z"
+            stroke="var(--color-ink)" stroke-width="0.75" opacity="0.08" fill="none"/>
+          <circle cx="35" cy="38" r="2" fill="var(--color-red)" opacity="0.15"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .visit {
+    position: relative;
+    border-top: 1px solid rgba(26, 26, 26, 0.08);
+  }
+
+  .visit__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  .visit__title {
+    font-size: var(--text-2xl);
+    color: var(--color-ink);
+    margin-bottom: var(--space-lg);
+  }
+
+  .visit__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .visit__block {
+    padding-left: var(--space-sm);
+    border-left: 2px solid var(--color-red);
+  }
+
+  .visit__label {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-light-gray);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+  }
+
+  .visit__value {
+    color: var(--color-ink);
+    font-size: var(--text-base);
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .visit__day {
+    color: var(--color-warm-gray);
+    min-width: 14ch;
+  }
+
+  .visit__hours {
+    color: var(--color-ink);
+  }
+
+  .visit__illustration {
+    display: flex;
+    justify-content: center;
+  }
+
+  .visit__cactus-scene {
+    width: min(100%, 250px);
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    .visit__layout {
+      grid-template-columns: 1fr auto;
+    }
+
+    .visit__cactus-scene {
+      width: 200px;
+    }
+  }
+</style>

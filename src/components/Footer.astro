@@ -1,0 +1,126 @@
+---
+import type { StudioInfo } from '../lib/sanity';
+
+interface Props {
+  info: StudioInfo;
+}
+
+const { info } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <!-- Decorative top border -->
+    <div class="footer__border" aria-hidden="true">
+      <svg width="100%" height="4" preserveAspectRatio="none" viewBox="0 0 800 4" fill="none">
+        <path d="M0 2 Q50 0 100 2 T200 2 T300 2 T400 2 T500 2 T600 2 T700 2 T800 2" stroke="var(--color-ink)" stroke-width="0.75" opacity="0.15"/>
+      </svg>
+    </div>
+
+    <div class="footer__content">
+      <div class="footer__brand">
+        <p class="footer__logo">
+          Too Bad
+          <svg width="12" height="12" viewBox="0 0 50 50" fill="var(--color-red)" aria-hidden="true" style="display:inline;vertical-align:middle;margin-left:2px;">
+            <path d="M25 3 L30 18 L46 20 L34 31 L37 47 L25 39 L13 47 L16 31 L4 20 L20 18 Z"/>
+          </svg>
+        </p>
+        <p class="footer__sub">Tattoo Studio &middot; Austin, TX</p>
+      </div>
+
+      <div class="footer__links">
+        {info.instagramUrl && (
+          <a href={info.instagramUrl} target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="Too Bad Tattoo Studio on Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+        )}
+        {info.email && (
+          <a href={`mailto:${info.email}`} class="footer__link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M2 4 L12 13 L22 4"/>
+            </svg>
+            <span>Email</span>
+          </a>
+        )}
+      </div>
+    </div>
+
+    <p class="footer__copy">&copy; {year} Too Bad Tattoo Studio. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-lg) 0 var(--space-md);
+  }
+
+  .footer__border {
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: flex-start;
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer__brand {
+    /* intentionally empty for structure */
+  }
+
+  .footer__logo {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer__sub {
+    font-size: var(--text-sm);
+    color: var(--color-light-gray);
+    letter-spacing: 0.05em;
+  }
+
+  .footer__links {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: var(--text-sm);
+    color: var(--color-warm-gray);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer__link:hover {
+    color: var(--color-ink);
+  }
+
+  .footer__copy {
+    font-size: 0.75rem;
+    color: var(--color-light-gray);
+    letter-spacing: 0.02em;
+  }
+
+  @media (min-width: 768px) {
+    .footer__content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+</style>
